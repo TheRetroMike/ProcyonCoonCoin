@@ -1,0 +1,92 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/procyon/.procyon" ]; then
+	PROCYOND_DEFAULT_DATADIR="/var/lib/procyon/.procyon"
+else
+	PROCYOND_DEFAULT_DATADIR="/var/lib/procyond"
+fi
+
+PROCYOND_CONFIGFILE=${PROCYOND_CONFIGFILE:-/etc/procyon/procyon.conf}
+PROCYOND_PIDDIR=${PROCYOND_PIDDIR:-/var/run/procyond}
+PROCYOND_PIDFILE=${PROCYOND_PIDFILE:-${PROCYOND_PIDDIR}/procyond.pid}
+PROCYOND_DATADIR=${PROCYOND_DATADIR:-${PROCYOND_DEFAULT_DATADIR}}
+PROCYOND_USER=${PROCYOND_USER:-${PROCYON_USER:-procyon}}
+PROCYOND_GROUP=${PROCYOND_GROUP:-procyon}
+PROCYOND_BIN=${PROCYOND_BIN:-/usr/bin/procyond}
+PROCYOND_NICE=${PROCYOND_NICE:-${NICELEVEL:-0}}
+PROCYOND_OPTS="${PROCYOND_OPTS:-${PROCYON_OPTS}}"
+
+name="Procyon Core Daemon"
+description="Procyon cryptocurrency P2P network daemon"
+
+command="/usr/bin/procyond"
+command_args="-pid=\"${PROCYOND_PIDFILE}\" \
+		-conf=\"${PROCYOND_CONFIGFILE}\" \
+		-datadir=\"${PROCYOND_DATADIR}\" \
+		-daemon \
+		${PROCYOND_OPTS}"
+
+required_files="${PROCYOND_CONFIGFILE}"
+start_stop_daemon_args="-u ${PROCYOND_USER} \
+			-N ${PROCYOND_NICE} -w 2000"
+pidfile="${PROCYOND_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${PROCYOND_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${PROCYOND_USER}:${PROCYOND_GROUP}" \
+	"${PROCYOND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${PROCYOND_USER}:${PROCYOND_GROUP}" \
+	"${PROCYOND_PIDDIR}"
+
+	checkpath -f \
+	-o ${PROCYOND_USER}:${PROCYOND_GROUP} \
+	-m 0660 \
+	${PROCYOND_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${PROCYOND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run procyond."
+		eerror "The setting must appear in ${PROCYOND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Procyon Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

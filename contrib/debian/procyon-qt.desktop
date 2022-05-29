@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Procyon Core
+Comment=Connect to the Procyon P2P Network
+Comment[de]=Verbinde mit dem Procyon peer-to-peer Netzwerk
+Comment[fr]=Procyon, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Procyon, eşten eşe kriptografik sanal para birimi
+Exec=procyon-qt %u
+Terminal=false
+Type=Application
+Icon=procyon128
+MimeType=x-scheme-handler/procyon;
+Categories=Office;Finance;

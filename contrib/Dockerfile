@@ -36,27 +36,27 @@ RUN apt-get update && \
 	libzmq3-dev libminiupnpc-dev libdb4.8-dev libdb4.8++-dev && \
 	apt-get clean
 
-#Build Ravencoin from source
-COPY . /home/raven/build/Ravencoin/
-WORKDIR /home/raven/build/Ravencoin
+#Build ProcyonCoin from source
+COPY . /home/procyon/build/ProcyonCoin/
+WORKDIR /home/procyon/build/ProcyonCoin
 RUN ./autogen.sh && ./configure --disable-tests --with-gui=no && make
 
 FROM base AS final
 
 #Add our service account user
-RUN useradd -ms /bin/bash raven && \
-	mkdir /var/lib/raven && \
-	chown raven:raven /var/lib/raven && \
-	ln -s /var/lib/raven /home/raven/.raven && \
-	chown -h raven:raven /home/raven/.raven
+RUN useradd -ms /bin/bash procyon && \
+	mkdir /var/lib/procyon && \
+	chown procyon:procyon /var/lib/procyon && \
+	ln -s /var/lib/procyon /home/procyon/.procyon && \
+	chown -h procyon:procyon /home/procyon/.procyon
 
-VOLUME /var/lib/raven
+VOLUME /var/lib/procyon
 
 #Copy the compiled binaries from the build
-COPY --from=build /home/raven/build/Ravencoin/src/ravend /usr/local/bin/ravend
-COPY --from=build /home/raven/build/Ravencoin/src/raven-cli /usr/local/bin/raven-cli
+COPY --from=build /home/procyon/build/ProcyonCoin/src/procyond /usr/local/bin/procyond
+COPY --from=build /home/procyon/build/ProcyonCoin/src/procyon-cli /usr/local/bin/procyon-cli
 
-WORKDIR /home/raven
-USER raven
+WORKDIR /home/procyon
+USER procyon
 
-CMD /usr/local/bin/ravend -datadir=/var/lib/raven -printtoconsole -onlynet=ipv4
+CMD /usr/local/bin/procyond -datadir=/var/lib/procyon -printtoconsole -onlynet=ipv4

@@ -1,0 +1,33 @@
+# /etc/conf.d/procyond: config file for /etc/init.d/procyond
+
+# Config file location
+#PROCYOND_CONFIGFILE="/etc/procyon/procyon.conf"
+
+# What directory to write pidfile to?  (created and owned by $PROCYOND_USER)
+#PROCYOND_PIDDIR="/var/run/procyond"
+
+# What filename to give the pidfile
+#PROCYOND_PIDFILE="${PROCYOND_PIDDIR}/procyond.pid"
+
+# Where to write procyond data (be mindful that the blockchain is large)
+#PROCYOND_DATADIR="/var/lib/procyond"
+
+# User and group to own procyond process
+#PROCYOND_USER="procyon"
+#PROCYOND_GROUP="procyon"
+
+# Path to procyond executable
+#PROCYOND_BIN="/usr/bin/procyond"
+
+# Nice value to run procyond under
+#PROCYOND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#PROCYOND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for procyond to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+PROCYOND_SIGTERM_TIMEOUT=60

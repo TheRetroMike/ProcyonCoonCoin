@@ -6,18 +6,18 @@ EXPOSE $RPCPORT
 
 EXPOSE $PORT
 
-RUN useradd -ms /bin/bash raven
+RUN useradd -ms /bin/bash procyon
 
-RUN mkdir /etc/raven
+RUN mkdir /etc/procyon
 
-RUN mkdir /var/lib/raven
+RUN mkdir /var/lib/procyon
 
-RUN chown raven:raven /etc/raven /var/lib/raven
+RUN chown procyon:procyon /etc/procyon /var/lib/procyon
 
-WORKDIR /home/raven
+WORKDIR /home/procyon
 
-COPY --chown=raven:raven linux64/* ./run.sh /home/raven/
+COPY --chown=procyon:procyon linux64/* ./run.sh /home/procyon/
 
-USER raven
+USER procyon
 
-CMD ["/home/raven/run.sh"]
+CMD ["/home/procyon/run.sh"]

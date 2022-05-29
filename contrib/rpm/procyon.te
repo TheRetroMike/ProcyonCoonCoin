@@ -1,0 +1,81 @@
+policy_module(procyon, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type procyon_t;
+type procyon_exec_t;
+init_daemon_domain(procyon_t, procyon_exec_t)
+
+permissive procyon_t;
+
+type procyon_initrc_exec_t;
+init_script_file(procyon_initrc_exec_t)
+
+type procyon_conf_t;
+files_type(procyon_conf_t)
+
+type procyon_var_lib_t;
+files_type(procyon_var_lib_t)
+
+type procyon_var_run_t;
+files_type(procyon_var_run_t)
+
+type procyon_port_t;
+corenet_port(procyon_port_t)
+
+########################################
+#
+# procyon local policy
+#
+allow procyon_t self:process { fork };
+
+allow procyon_t self:fifo_file rw_fifo_file_perms;
+allow procyon_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(procyon_t, procyon_conf_t, procyon_conf_t)
+manage_files_pattern(procyon_t, procyon_conf_t, procyon_conf_t)
+
+manage_dirs_pattern(procyon_t, procyon_var_lib_t, procyon_var_lib_t)
+manage_files_pattern(procyon_t, procyon_var_lib_t, procyon_var_lib_t)
+files_var_lib_filetrans(procyon_t, procyon_var_lib_t, { dir file })
+
+manage_dirs_pattern(procyon_t, procyon_var_run_t, procyon_var_run_t)
+manage_files_pattern(procyon_t, procyon_var_run_t, procyon_var_run_t)
+
+sysnet_dns_name_resolve(procyon_t)
+corenet_all_recvfrom_unlabeled(procyon_t)
+
+allow procyon_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(procyon_t)
+corenet_tcp_sendrecv_generic_node(procyon_t)
+corenet_tcp_sendrecv_all_ports(procyon_t)
+corenet_tcp_bind_generic_node(procyon_t)
+
+gen_require(`
+    type procyon_port_t;
+')
+allow procyon_t procyon_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type procyon_port_t;
+')
+allow procyon_t procyon_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(procyon_t)
+
+files_read_etc_files(procyon_t)
+
+miscfiles_read_localization(procyon_t)
+
+sysnet_dns_name_resolve(procyon_t)
+
+allow procyon_t procyon_exec_t:file execute_no_trans;
+allow procyon_t self:process setsched;
+corecmd_exec_ls(procyon_t)
+corenet_tcp_connect_http_port(procyon_t)
+dev_read_urand(procyon_t)
+fs_getattr_xattr_fs(procyon_t)
+kernel_read_system_state(procyon_t)

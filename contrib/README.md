@@ -13,7 +13,7 @@ Construct a linear, no-fork, best version of the blockchain.
 
 ### [Qos](/contrib/qos) ###
 
-A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the Raven network. This means one can have an always-on ravend instance running, and another local ravend/raven-qt instance which connects to this node and receives blocks from it.
+A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the Procyon network. This means one can have an always-on procyond instance running, and another local procyond/procyon-qt instance which connects to this node and receives blocks from it.
 
 ### [Seeds](/contrib/seeds) ###
 Utility to generate the pnSeed[] array that is compiled into the client.
@@ -22,20 +22,20 @@ Build Tools and Keys
 ---------------------
 
 ### [Debian](/contrib/debian) ###
-Contains files used to package ravend/raven-qt
-for Debian-based Linux systems. If you compile ravend/raven-qt yourself, there are some useful files here.
+Contains files used to package procyond/procyon-qt
+for Debian-based Linux systems. If you compile procyond/procyon-qt yourself, there are some useful files here.
 
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
-Files used during the gitian build process. For more information about gitian, see the [the Raven Core documentation repository](https://github.com/raven-core/docs).
+Files used during the gitian build process. For more information about gitian, see the [the Procyon Core documentation repository](https://github.com/procyon-core/docs).
 
 ### [Gitian-keys](/contrib/gitian-keys)
-PGP keys used for signing Raven Core [Gitian release](/doc/release-process.md) results.
+PGP keys used for signing Procyon Core [Gitian release](/doc/release-process.md) results.
 
 ### [MacDeploy](/contrib/macdeploy) ###
 Scripts and notes for Mac builds. 
 
 ### [RPM](/contrib/rpm) ###
-RPM spec file for building raven-core on RPM based distributions.
+RPM spec file for building procyon-core on RPM based distributions.
 
 ### [Gitian-build](/contrib/gitian-build.sh) ###
 Script for running full Gitian builds.
@@ -44,7 +44,7 @@ Test and Verify Tools
 ---------------------
 
 ### [TestGen](/contrib/testgen) ###
-Utilities to generate test vectors for the data-driven Raven tests.
+Utilities to generate test vectors for the data-driven Procyon tests.
 
 ### [Verify Binaries](/contrib/verifybinaries) ###
-This script attempts to download and verify the signature file SHA256SUMS.asc from raven.org.
+This script attempts to download and verify the signature file SHA256SUMS.asc from procyon.org.

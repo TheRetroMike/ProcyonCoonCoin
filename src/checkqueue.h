@@ -1,10 +1,10 @@
 // Copyright (c) 2012-2015 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
+// Copyright (c) 2017-2019 The Procyon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_CHECKQUEUE_H
-#define RAVEN_CHECKQUEUE_H
+#ifndef PROCYON_CHECKQUEUE_H
+#define PROCYON_CHECKQUEUE_H
 
 #include "sync.h"
 
@@ -215,4 +215,4 @@ public:
     }
 };
 
-#endif // RAVEN_CHECKQUEUE_H
+#endif // PROCYON_CHECKQUEUE_H

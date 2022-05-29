@@ -1,0 +1,6 @@
+usr/local/bin/procyon-qt usr/bin
+share/pixmaps/procyon32.xpm usr/share/pixmaps
+share/pixmaps/procyon16.xpm usr/share/pixmaps
+share/pixmaps/procyon128.png usr/share/pixmaps
+debian/procyon-qt.desktop usr/share/applications
+debian/procyon-qt.protocol usr/share/kde4/services/

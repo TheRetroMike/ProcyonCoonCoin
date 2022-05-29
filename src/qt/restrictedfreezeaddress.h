@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The Raven Core developers
+// Copyright (c) 2019 The Procyon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_QT_FREEZEADDRESS_H
-#define RAVEN_QT_FREEZEADDRESS_H
+#ifndef PROCYON_QT_FREEZEADDRESS_H
+#define PROCYON_QT_FREEZEADDRESS_H
 
 #include "amount.h"
 
@@ -65,4 +65,4 @@ private Q_SLOTS:
     void changeAddressChanged(int);
 };
 
-#endif // RAVEN_QT_FREEZEADDRESS_H
+#endif // PROCYON_QT_FREEZEADDRESS_H

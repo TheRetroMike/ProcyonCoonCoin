@@ -1,13 +1,13 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
+// Copyright (c) 2017-2019 The Procyon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_QT_NOTIFICATOR_H
-#define RAVEN_QT_NOTIFICATOR_H
+#ifndef PROCYON_QT_NOTIFICATOR_H
+#define PROCYON_QT_NOTIFICATOR_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/raven-config.h"
+#include "config/procyon-config.h"
 #endif
 
 #include <QIcon>
@@ -75,4 +75,4 @@ private:
 #endif
 };
 
-#endif // RAVEN_QT_NOTIFICATOR_H
+#endif // PROCYON_QT_NOTIFICATOR_H

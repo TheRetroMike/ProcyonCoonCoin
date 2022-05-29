@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: ravend.service
-Upstart: ravend.conf
-OpenRC:  ravend.openrc
-         ravend.openrcconf
-CentOS:  ravend.init
-OS X:    org.raven.ravend.plist
+SystemD: procyond.service
+Upstart: procyond.conf
+OpenRC:  procyond.openrc
+         procyond.openrcconf
+CentOS:  procyond.init
+OS X:    org.procyon.procyond.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

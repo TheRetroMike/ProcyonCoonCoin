@@ -1,0 +1,8 @@
+/usr/bin/procyon-cli		--	gen_context(system_u:object_r:procyon_exec_t,s0)
+/usr/sbin/procyond		--	gen_context(system_u:object_r:procyon_exec_t,s0)
+/usr/lib(64)?/procyon/procyond		--	gen_context(system_u:object_r:procyon_exec_t,s0)
+
+/etc/procyon(/.*)?		gen_context(system_u:object_r:procyon_conf_t,s0)
+/var/lib/procyon(/.*)?		gen_context(system_u:object_r:procyon_var_lib_t,s0)
+
+(/var)?/run/procyond(/.*)?   gen_context(system_u:object_r:procyon_var_run_t,s0)

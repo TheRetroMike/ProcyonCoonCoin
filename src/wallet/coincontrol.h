@@ -1,10 +1,10 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
+// Copyright (c) 2017-2019 The Procyon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_WALLET_COINCONTROL_H
-#define RAVEN_WALLET_COINCONTROL_H
+#ifndef PROCYON_WALLET_COINCONTROL_H
+#define PROCYON_WALLET_COINCONTROL_H
 
 #include "policy/feerate.h"
 #include "policy/fees.h"
@@ -130,4 +130,4 @@ private:
     std::set<COutPoint> setAssetsSelected;
 };
 
-#endif // RAVEN_WALLET_COINCONTROL_H
+#endif // PROCYON_WALLET_COINCONTROL_H

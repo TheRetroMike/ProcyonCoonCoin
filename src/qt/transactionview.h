@@ -1,10 +1,10 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Raven Core developers
+// Copyright (c) 2017-2019 The Procyon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef RAVEN_QT_TRANSACTIONVIEW_H
-#define RAVEN_QT_TRANSACTIONVIEW_H
+#ifndef PROCYON_QT_TRANSACTIONVIEW_H
+#define PROCYON_QT_TRANSACTIONVIEW_H
 
 #include "guiutil.h"
 
@@ -127,4 +127,4 @@ public Q_SLOTS:
 
 };
 
-#endif // RAVEN_QT_TRANSACTIONVIEW_H
+#endif // PROCYON_QT_TRANSACTIONVIEW_H
