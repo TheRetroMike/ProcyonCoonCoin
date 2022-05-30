@@ -85,6 +85,8 @@ AC_DEFUN([PROCYON_QT_INIT],[
     [use_dbus=$withval],
     [use_dbus=auto])
 
+  dnl disable dbus for all builds
+  use_dbus=no
   dnl Android doesn't support D-Bus and certainly doesn't use it for notifications
   case $host in
     *android*)
