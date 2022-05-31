@@ -271,7 +271,7 @@ bool parseProcyonURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!ProcyonUnits::parse(ProcyonUnits::RVN, i->second, &rv.amount))
+                if(!ProcyonUnits::parse(ProcyonUnits::PRCO, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -310,7 +310,7 @@ QString formatProcyonURI(const SendCoinsRecipient &info)
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(ProcyonUnits::format(ProcyonUnits::RVN, info.amount, false, ProcyonUnits::separatorNever));
+        ret += QString("?amount=%1").arg(ProcyonUnits::format(ProcyonUnits::PRCO, info.amount, false, ProcyonUnits::separatorNever));
         paramCount++;
     }
 

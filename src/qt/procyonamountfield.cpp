@@ -31,7 +31,7 @@ class AmountSpinBox: public QAbstractSpinBox
 public:
     explicit AmountSpinBox(QWidget *parent):
         QAbstractSpinBox(parent),
-        currentUnit(ProcyonUnits::RVN),
+        currentUnit(ProcyonUnits::PRCO),
         singleStep(100000), // satoshis
         assetUnit(-1)
     {
@@ -124,9 +124,9 @@ public:
             const QFontMetrics fm(fontMetrics());
             int h = lineEdit()->minimumSizeHint().height();
 			#ifndef QTversionPreFiveEleven
-            	int w = fm.horizontalAdvance(ProcyonUnits::format(ProcyonUnits::RVN, ProcyonUnits::maxMoney(), false, ProcyonUnits::separatorAlways, assetUnit));
+            	int w = fm.horizontalAdvance(ProcyonUnits::format(ProcyonUnits::PRCO, ProcyonUnits::maxMoney(), false, ProcyonUnits::separatorAlways, assetUnit));
 			#else
-				int w = fm.width(ProcyonUnits::format(ProcyonUnits::RVN, ProcyonUnits::maxMoney(), false, ProcyonUnits::separatorAlways, assetUnit));
+				int w = fm.width(ProcyonUnits::format(ProcyonUnits::PRCO, ProcyonUnits::maxMoney(), false, ProcyonUnits::separatorAlways, assetUnit));
 			#endif
             w += 2; // cursor blinking space
 

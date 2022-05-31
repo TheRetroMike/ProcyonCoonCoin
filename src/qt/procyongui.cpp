@@ -229,7 +229,7 @@ ProcyonGUI::ProcyonGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
         setCentralWidget(rpcConsole);
     }
 
-    /** RVN START */
+    /** PRCO START */
     labelCurrentMarket = new QLabel();
     labelCurrentPrice = new QLabel();
     headerWidget = new QWidget();
@@ -239,7 +239,7 @@ ProcyonGUI::ProcyonGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     labelVersionUpdate = new QLabel();
     networkVersionManager = new QNetworkAccessManager();
     versionRequest = new QNetworkRequest();
-    /** RVN END */
+    /** PRCO END */
 
     // Accept D&D of URIs
     setAcceptDrops(true);
@@ -424,9 +424,9 @@ void ProcyonGUI::createActions()
     historyAction->setFont(font);
     tabGroup->addAction(historyAction);
 
-    /** RVN START */
+    /** PRCO START */
     transferAssetAction = new QAction(platformStyle->SingleColorIconOnOff(":/icons/asset_transfer_selected", ":/icons/asset_transfer"), tr("&Transfer Assets"), this);
-    transferAssetAction->setStatusTip(tr("Transfer assets to RVN addresses"));
+    transferAssetAction->setStatusTip(tr("Transfer assets to PRCO addresses"));
     transferAssetAction->setToolTip(transferAssetAction->statusTip());
     transferAssetAction->setCheckable(true);
     transferAssetAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
@@ -474,7 +474,7 @@ void ProcyonGUI::createActions()
     restrictedAssetAction->setFont(font);
     tabGroup->addAction(restrictedAssetAction);
     
-    /** RVN END */
+    /** PRCO END */
 
 #ifdef ENABLE_WALLET
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
@@ -643,7 +643,7 @@ void ProcyonGUI::createToolBars()
 {
     if(walletFrame)
     {
-        /** RVN START */
+        /** PRCO START */
         // Create the orange background and the vertical tool bar
         QWidget* toolbarWidget = new QWidget();
 
@@ -655,7 +655,7 @@ void ProcyonGUI::createToolBars()
         label->setPixmap(QPixmap::fromImage(QImage(":/icons/procyoncointext")));
         label->setContentsMargins(0,0,0,50);
         label->setStyleSheet(".QLabel{background-color: transparent;}");
-        /** RVN END */
+        /** PRCO END */
 
         QToolBar *toolbar = new QToolBar();
         toolbar->setStyle(style());
@@ -684,7 +684,7 @@ void ProcyonGUI::createToolBars()
         stringToUse = normalString;
 #endif
 
-        /** RVN START */
+        /** PRCO START */
         QString tbStyleSheet = ".QToolBar {background-color : transparent; border-color: transparent; }  "
                                ".QToolButton {background-color: transparent; border-color: transparent; width: 249px; color: %1; border: none;} "
                                ".QToolButton:checked {background: none; background-color: none; selection-background-color: none; color: %2; border: none; font: %4} "
@@ -857,7 +857,7 @@ void ProcyonGUI::createToolBars()
         connect(pricingTimer, SIGNAL(timeout()), this, SLOT(getPriceInfo()));
         pricingTimer->start(10000);
         getPriceInfo();
-        /** RVN END */
+        /** PRCO END */
 
         // Get the latest ProcyonCoin release and let the user know if they are using the latest version
         // Network request code for the header widget
@@ -1067,14 +1067,14 @@ void ProcyonGUI::setWalletActionsEnabled(bool enabled)
     usedReceivingAddressesAction->setEnabled(enabled);
     openAction->setEnabled(enabled);
 
-    /** RVN START */
+    /** PRCO START */
     transferAssetAction->setEnabled(false);
     createAssetAction->setEnabled(false);
     manageAssetAction->setEnabled(false);
     messagingAction->setEnabled(false);
     votingAction->setEnabled(false);
     restrictedAssetAction->setEnabled(false);
-    /** RVN END */
+    /** PRCO END */
 }
 
 void ProcyonGUI::createTrayIcon(const NetworkStyle *networkStyle)
@@ -1225,7 +1225,7 @@ void ProcyonGUI::gotoVerifyMessageTab(QString addr)
     if (walletFrame) walletFrame->gotoVerifyMessageTab(addr);
 }
 
-/** RVN START */
+/** PRCO START */
 void ProcyonGUI::gotoAssetsPage()
 {
     transferAssetAction->setChecked(true);
@@ -1249,7 +1249,7 @@ void ProcyonGUI::gotoRestrictedAssetsPage()
     restrictedAssetAction->setChecked(true);
     if (walletFrame) walletFrame->gotoRestrictedAssetsPage();
 };
-/** RVN END */
+/** PRCO END */
 #endif // ENABLE_WALLET
 
 void ProcyonGUI::updateNetworkState()
@@ -1525,7 +1525,7 @@ void ProcyonGUI::incomingTransaction(const QString& date, int unit, const CAmoun
 {
     // On new transaction, make an info balloon
     QString msg = tr("Date: %1\n").arg(date);
-    if (assetName == "RVN")
+    if (assetName == "PRCO")
         msg += tr("Amount: %1\n").arg(ProcyonUnits::formatWithUnit(unit, amount, true));
     else
         msg += tr("Amount: %1\n").arg(ProcyonUnits::formatWithCustomName(assetName, amount, MAX_ASSET_UNITS, true));
@@ -1545,7 +1545,7 @@ void ProcyonGUI::checkAssets()
     // Check that status of RIP2 and activate the assets icon if it is active
     if(AreAssetsDeployed()) {
         transferAssetAction->setDisabled(false);
-        transferAssetAction->setToolTip(tr("Transfer assets to RVN addresses"));
+        transferAssetAction->setToolTip(tr("Transfer assets to PRCO addresses"));
         createAssetAction->setDisabled(false);
         createAssetAction->setToolTip(tr("Create new main/sub/unique assets"));
         manageAssetAction->setDisabled(false);

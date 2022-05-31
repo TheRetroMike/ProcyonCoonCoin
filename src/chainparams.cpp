@@ -265,7 +265,7 @@ public:
 
         nKAAAWWWPOWActivationTime = 1653725030; 
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
-        /** RVN End **/
+        /** PRCO End **/
     }
 };
 
@@ -481,7 +481,7 @@ public:
 
         nKAAAWWWPOWActivationTime = 1653661370; 
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
-        /** RVN End **/
+        /** PRCO End **/
     }
 };
 
@@ -688,7 +688,7 @@ public:
         // If you are looking to test the kawpow hashing function in regtest. You will need to change this number
         nKAAAWWWPOWActivationTime = 1653661370;
         nKAWPOWActivationTime = nKAAAWWWPOWActivationTime;
-        /** RVN End **/
+        /** PRCO End **/
     }
 };
 

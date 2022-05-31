@@ -1,6 +1,6 @@
 FROM amd64/ubuntu:18.04 AS base
 
-#If you found this docker image helpful please donate RVN to the maintainer
+#If you found this docker image helpful please donate PRCO to the maintainer
 LABEL maintainer="RV9zdNeUTQUToZUcRp9uNF8gwH5LzDFtan"
 
 EXPOSE 8766/tcp

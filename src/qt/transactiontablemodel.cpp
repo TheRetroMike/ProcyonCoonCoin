@@ -599,7 +599,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         case Amount:
             return formatTxAmount(rec, true, ProcyonUnits::separatorAlways);
         case AssetName:
-            if (rec->assetName != "RVN")
+            if (rec->assetName != "PRCO")
                return QString::fromStdString(rec->assetName);
             else
                return QString(ProcyonUnits::name(walletModel->getOptionsModel()->getDisplayUnit()));
@@ -649,7 +649,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         }
         if(index.column() == AssetName)
         {
-            if (rec->assetName != "RVN")
+            if (rec->assetName != "PRCO")
                return platformStyle->AssetTxColor();
         }
         break;
@@ -711,7 +711,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
     case AssetNameRole:
         {
             QString assetName;
-            if (rec->assetName != "RVN")
+            if (rec->assetName != "PRCO")
                assetName.append(QString::fromStdString(rec->assetName));
             else
                assetName.append(QString(ProcyonUnits::name(walletModel->getOptionsModel()->getDisplayUnit())));
@@ -751,7 +751,7 @@ QVariant TransactionTableModel::headerData(int section, Qt::Orientation orientat
             case Amount:
                 return tr("Amount removed from or added to balance.");
             case AssetName:
-                return tr("The asset (or RVN) removed or added to balance.");
+                return tr("The asset (or PRCO) removed or added to balance.");
             }
         }
     }

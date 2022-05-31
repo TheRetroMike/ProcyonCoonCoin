@@ -94,10 +94,10 @@ private:
     QString strThirdPartyTxUrls;
     QString strIpfsUrl;
     bool fCoinControlFeatures;
-    /** RVN START*/
+    /** PRCO START*/
     bool fCustomFeeFeatures;
     bool fDarkModeEnabled;
-    /** RVN END*/
+    /** PRCO END*/
     /* settings that were overridden by command-line */
     QString strOverriddenByCommandLine;
 

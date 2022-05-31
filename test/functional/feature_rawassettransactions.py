@@ -62,7 +62,7 @@ class RawAssetTransactionsTest(ProcyonTestFramework):
         self.num_nodes = 3
 
     def activate_assets(self):
-        self.log.info("Generating RVN for node[0] and activating assets...")
+        self.log.info("Generating PRCO for node[0] and activating assets...")
         n0 = self.nodes[0]
 
         n0.generate(1)
@@ -1498,7 +1498,7 @@ class RawAssetTransactionsTest(ProcyonTestFramework):
         ########################################
         # rvn for assets
 
-        # n1 buys 400 ANDUIN from n2 for 4000 RVN
+        # n1 buys 400 ANDUIN from n2 for 4000 PRCO
         price = 4000
         amount = 400
         fee = 0.01
@@ -1547,7 +1547,7 @@ class RawAssetTransactionsTest(ProcyonTestFramework):
         ########################################
         # rvn for owner
 
-        # n2 buys JAINA! from n1 for 20000 RVN
+        # n2 buys JAINA! from n1 for 20000 PRCO
         price = 20000
         amount = 1
         balance1 = newbalance1

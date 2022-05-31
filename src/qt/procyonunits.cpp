@@ -18,9 +18,9 @@ ProcyonUnits::ProcyonUnits(QObject *parent):
 QList<ProcyonUnits::Unit> ProcyonUnits::availableUnits()
 {
     QList<ProcyonUnits::Unit> unitlist;
-    unitlist.append(RVN);
-    unitlist.append(mRVN);
-    unitlist.append(uRVN);
+    unitlist.append(PRCO);
+    unitlist.append(mPRCO);
+    unitlist.append(uPRCO);
     return unitlist;
 }
 
@@ -28,9 +28,9 @@ bool ProcyonUnits::valid(int unit)
 {
     switch(unit)
     {
-    case RVN:
-    case mRVN:
-    case uRVN:
+    case PRCO:
+    case mPRCO:
+    case uPRCO:
         return true;
     default:
         return false;
@@ -41,9 +41,9 @@ QString ProcyonUnits::name(int unit)
 {
     switch(unit)
     {
-    case RVN: return QString("RVN");
-    case mRVN: return QString("mRVN");
-    case uRVN: return QString::fromUtf8("μRVN");
+    case PRCO: return QString("PRCO");
+    case mPRCO: return QString("mPRCO");
+    case uPRCO: return QString::fromUtf8("μPRCO");
     default: return QString("???");
     }
 }
@@ -52,9 +52,9 @@ QString ProcyonUnits::description(int unit)
 {
     switch(unit)
     {
-    case RVN: return QString("Procyons");
-    case mRVN: return QString("Milli-Procyons (1 / 1" THIN_SP_UTF8 "000)");
-    case uRVN: return QString("Micro-Procyons (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case PRCO: return QString("Procyons");
+    case mPRCO: return QString("Milli-Procyons (1 / 1" THIN_SP_UTF8 "000)");
+    case uPRCO: return QString("Micro-Procyons (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -63,9 +63,9 @@ qint64 ProcyonUnits::factor(int unit)
 {
     switch(unit)
     {
-    case RVN:  return 100000000;
-    case mRVN: return 100000;
-    case uRVN: return 100;
+    case PRCO:  return 100000000;
+    case mPRCO: return 100000;
+    case uPRCO: return 100;
     default:   return 100000000;
     }
 }
@@ -91,9 +91,9 @@ int ProcyonUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case RVN: return 8;
-    case mRVN: return 5;
-    case uRVN: return 2;
+    case PRCO: return 8;
+    case mPRCO: return 5;
+    case uPRCO: return 2;
     default: return 0;
     }
 }
@@ -150,7 +150,7 @@ QString ProcyonUnits::formatWithUnit(int unit, const CAmount& amount, bool pluss
 
 QString ProcyonUnits::formatWithCustomName(QString customName, const CAmount& amount, int unit, bool plussign, SeparatorStyle separators)
 {
-    return format(RVN, amount / factorAsset(MAX_ASSET_UNITS - unit), plussign, separators, unit) + QString(" ") + customName;
+    return format(PRCO, amount / factorAsset(MAX_ASSET_UNITS - unit), plussign, separators, unit) + QString(" ") + customName;
 }
 
 QString ProcyonUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)

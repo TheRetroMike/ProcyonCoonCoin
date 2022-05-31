@@ -14,7 +14,7 @@ We’re all in this together. There are new capabilities included in the latest 
     * REST API to RPC (business specific)
     * REST API to memos/messages
 * Core
-    * Asset Exchange Proxy (simulate sending an ASSET like procyond does for RVN)
+    * Asset Exchange Proxy (simulate sending an ASSET like procyond does for PRCO)
     * Improved messaging/memo RPC calls
     * 24 word - master key (not seed) - direct to/from master xprv and pub
     * Local Filter (whitelist/blacklist) for assets
@@ -41,7 +41,7 @@ We’re all in this together. There are new capabilities included in the latest 
     * List of Tags per Address
     * Tighter integration with IPFS
 * Mobile wallet enhancements
-    * Fix dark mode on RVN Wallet
+    * Fix dark mode on PRCO Wallet
     * Fix GitHub Issues on Wallet
     * Asset Sweeping on Android
 * Mobile Wallet
@@ -61,7 +61,7 @@ We’re all in this together. There are new capabilities included in the latest 
 * IPFS Integration benefits (education)
 * Digital Twin capabilities (education)
 * Security Token issuer benefits (education)
-* Run a contest: RVN prize for best idea for new ProcyonCoin based Business
+* Run a contest: PRCO prize for best idea for new ProcyonCoin based Business
 
 
 ### Entrepreneur (Business Opportunities)
@@ -70,14 +70,14 @@ We’re all in this together. There are new capabilities included in the latest 
 * Digital Twins / Proof-of-Authenticity Business
 * Back-end API platform for ProcyonCoin
     * Other people to hit high-availablity API
-* Fee system to pay RVN fees automatically
+* Fee system to pay PRCO fees automatically
     * Auto-pay fees
     * Can take X% of fees
     * Auto-cosign transactions
     * Constructs a transaction for signing , adds fees, cosigns and publishes
 * Auto fee funder (so users of ABC token doesn’t need to worry about fees)
     * Watches for a specific token
-    * Sends small amount of RVN for fees.
+    * Sends small amount of PRCO for fees.
 * #BLUE_CHECK_MARK tag issuer as a trust mark.  Not just KYC, but a history of being a good actor.  Mirrors the blue check mark from twitter.
 * #KYC tagger - store info and tag ProcyonCoin addresses
 * #ACCREDITED - verify accredited status and tag ProcyonCoin addresses
@@ -87,7 +87,7 @@ We’re all in this together. There are new capabilities included in the latest 
 * Security Token Issuance Platform
 * Collaborate with exchanges for more listings
 * Collaborate with custodial Security Token exchanges for deposit/withdrawal
-* Collaborate with hardware wallets for additional RVN and asset support
+* Collaborate with hardware wallets for additional PRCO and asset support
 
 
 ### Areas for ProcyonCoin Innovation

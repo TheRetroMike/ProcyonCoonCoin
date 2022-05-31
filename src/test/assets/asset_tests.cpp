@@ -48,7 +48,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tests, BasicTestingSetup)
         BOOST_CHECK(!IsAssetNameValid("AB_.C", type));
 
         //- Versions of PROCYONCOIN NOT allowed
-        BOOST_CHECK(!IsAssetNameValid("RVN", type));
+        BOOST_CHECK(!IsAssetNameValid("PRCO", type));
         BOOST_CHECK(!IsAssetNameValid("PROCYON", type));
         BOOST_CHECK(!IsAssetNameValid("PROCYONCOIN", type));
 
