@@ -739,6 +739,7 @@ void ProcyonGUI::createToolBars()
         currentMarketFont.setPixelSize(18);
 
         // Set the pricing information
+        /*
         QHBoxLayout* priceLayout = new QHBoxLayout(headerWidget);
         priceLayout->setContentsMargins(0,0,0,25);
         priceLayout->setDirection(QBoxLayout::LeftToRight);
@@ -782,6 +783,7 @@ void ProcyonGUI::createToolBars()
         priceLayout->addWidget(comboRvnUnit, 0 , Qt::AlignBottom| Qt::AlignLeft);
         priceLayout->addStretch();
         priceLayout->addWidget(labelVersionUpdate, 0 , Qt::AlignVCenter | Qt::AlignRight);
+        */
 
         // Create the layout for widget to the right of the tool bar
         QVBoxLayout* mainFrameLayout = new QVBoxLayout(mainWalletWidget);
