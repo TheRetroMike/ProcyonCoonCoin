@@ -433,6 +433,8 @@ void ProcyonGUI::createActions()
     transferAssetAction->setFont(font);
     tabGroup->addAction(transferAssetAction);
 
+    /*
+    // DISABLE ASSETS
     createAssetAction = new QAction(platformStyle->SingleColorIconOnOff(":/icons/asset_create_selected", ":/icons/asset_create"), tr("&Create Assets"), this);
     createAssetAction->setStatusTip(tr("Create new main/sub/unique assets"));
     createAssetAction->setToolTip(createAssetAction->statusTip());
@@ -472,7 +474,7 @@ void ProcyonGUI::createActions()
 //    restrictedAssetAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_9));
     restrictedAssetAction->setFont(font);
     tabGroup->addAction(restrictedAssetAction);
-
+    */
     /** RVN END */
 
 #ifdef ENABLE_WALLET
