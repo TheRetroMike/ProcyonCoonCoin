@@ -739,10 +739,10 @@ void ProcyonGUI::createToolBars()
         currentMarketFont.setPixelSize(18);
 
         // Set the pricing information
-        QHBoxLayout* priceLayout = new QHBoxLayout(headerWidget);
-        priceLayout->setContentsMargins(0,0,0,25);
-        priceLayout->setDirection(QBoxLayout::LeftToRight);
-        priceLayout->setAlignment(Qt::AlignVCenter);
+        //QHBoxLayout* priceLayout = new QHBoxLayout(headerWidget);
+        //priceLayout->setContentsMargins(0,0,0,25);
+        //priceLayout->setDirection(QBoxLayout::LeftToRight);
+        //priceLayout->setAlignment(Qt::AlignVCenter);
         labelCurrentMarket->setContentsMargins(50,0,0,0);
         labelCurrentMarket->setAlignment(Qt::AlignVCenter);
         labelCurrentMarket->setStyleSheet(STRING_LABEL_COLOR);
@@ -776,12 +776,12 @@ void ProcyonGUI::createToolBars()
         labelVersionUpdate->setFont(currentMarketFont);
         labelVersionUpdate->hide();
 
-        priceLayout->setGeometry(headerWidget->rect());
+        //priceLayout->setGeometry(headerWidget->rect());
         //priceLayout->addWidget(labelCurrentMarket, 0, Qt::AlignVCenter | Qt::AlignLeft);
         //priceLayout->addWidget(labelCurrentPrice, 0,  Qt::AlignVCenter | Qt::AlignLeft);
         //priceLayout->addWidget(comboRvnUnit, 0 , Qt::AlignBottom| Qt::AlignLeft);
         //priceLayout->addStretch();
-        priceLayout->addWidget(labelVersionUpdate, 0 , Qt::AlignVCenter | Qt::AlignRight);
+        //priceLayout->addWidget(labelVersionUpdate, 0 , Qt::AlignVCenter | Qt::AlignRight);
         
 
         // Create the layout for widget to the right of the tool bar
