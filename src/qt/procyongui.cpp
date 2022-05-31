@@ -739,10 +739,10 @@ void ProcyonGUI::createToolBars()
         currentMarketFont.setPixelSize(18);
 
         // Set the pricing information
-        //QHBoxLayout* priceLayout = new QHBoxLayout(headerWidget);
-        //priceLayout->setContentsMargins(0,0,0,25);
-        //priceLayout->setDirection(QBoxLayout::LeftToRight);
-        //priceLayout->setAlignment(Qt::AlignVCenter);
+        QHBoxLayout* priceLayout = new QHBoxLayout(headerWidget);
+        priceLayout->setContentsMargins(0,0,0,25);
+        priceLayout->setDirection(QBoxLayout::LeftToRight);
+        priceLayout->setAlignment(Qt::AlignVCenter);
         labelCurrentMarket->setContentsMargins(50,0,0,0);
         labelCurrentMarket->setAlignment(Qt::AlignVCenter);
         labelCurrentMarket->setStyleSheet(STRING_LABEL_COLOR);
@@ -766,7 +766,7 @@ void ProcyonGUI::createToolBars()
         comboRvnUnit->setStyleSheet(STRING_LABEL_COLOR);
         comboRvnUnit->setFont(currentMarketFont);
 
-        labelVersionUpdate->setText("<a href=\"https://github.com/ProcyonProject/ProcyonCoin/releases\">New Wallet Version Available</a>");
+        labelVersionUpdate->setText("<a href=\"https://github.com/ProcyonCoin/ProcyonCoonCoin/releases\">New Wallet Version Available</a>");
         labelVersionUpdate->setTextFormat(Qt::RichText);
         labelVersionUpdate->setTextInteractionFlags(Qt::TextBrowserInteraction);
         labelVersionUpdate->setOpenExternalLinks(true);
@@ -776,12 +776,12 @@ void ProcyonGUI::createToolBars()
         labelVersionUpdate->setFont(currentMarketFont);
         labelVersionUpdate->hide();
 
-        //priceLayout->setGeometry(headerWidget->rect());
-        //priceLayout->addWidget(labelCurrentMarket, 0, Qt::AlignVCenter | Qt::AlignLeft);
-        //priceLayout->addWidget(labelCurrentPrice, 0,  Qt::AlignVCenter | Qt::AlignLeft);
-        //priceLayout->addWidget(comboRvnUnit, 0 , Qt::AlignBottom| Qt::AlignLeft);
-        //priceLayout->addStretch();
-        //priceLayout->addWidget(labelVersionUpdate, 0 , Qt::AlignVCenter | Qt::AlignRight);
+        priceLayout->setGeometry(headerWidget->rect());
+        priceLayout->addWidget(labelCurrentMarket, 0, Qt::AlignVCenter | Qt::AlignLeft);
+        priceLayout->addWidget(labelCurrentPrice, 0,  Qt::AlignVCenter | Qt::AlignLeft);
+        priceLayout->addWidget(comboRvnUnit, 0 , Qt::AlignBottom| Qt::AlignLeft);
+        priceLayout->addStretch();
+        priceLayout->addWidget(labelVersionUpdate, 0 , Qt::AlignVCenter | Qt::AlignRight);
         
 
         // Create the layout for widget to the right of the tool bar
@@ -1920,6 +1920,6 @@ void ProcyonGUI::mnemonic()
 
 void ProcyonGUI::getLatestVersion()
 {
-    versionRequest->setUrl(QUrl("https://api.github.com/repos/ProcyonProject/ProcyonCoin/releases"));
+    versionRequest->setUrl(QUrl("https://api.github.com/repos/ProcyonCoin/ProcyonCoonCoin/releases"));
     networkVersionManager->get(*versionRequest);
 }
