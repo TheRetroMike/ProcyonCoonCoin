@@ -118,7 +118,7 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 1051200;  //~ 3 yrs at 1.5 min block time
+        consensus.nSubsidyHalvingInterval = 1576800;  //~ 3 yrs at 1 min block time
         consensus.nBIP34Enabled = false;
         consensus.nBIP65Enabled = false; // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
         consensus.nBIP66Enabled = false;
@@ -126,8 +126,8 @@ public:
         consensus.nCSVEnabled = true;
         consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.kawpowLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // Estimated starting diff for first 180 kawpow blocks
-        consensus.nPowTargetTimespan = 2016 * 1.5 * 60; 
-        consensus.nPowTargetSpacing = 1.5 * 60;
+        consensus.nPowTargetTimespan = 2016 * 60; 
+        consensus.nPowTargetSpacing = 1 * 60;
 		consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1613; // Approx 80% of 2016
@@ -228,15 +228,15 @@ public:
 
         /** PRCO Start **/
         // Burn Amounts
-        nIssueAssetBurnAmount = 25 * COIN;
-        nReissueAssetBurnAmount = 5 * COIN;
-        nIssueSubAssetBurnAmount = 5 * COIN;
-        nIssueUniqueAssetBurnAmount = .25 * COIN;
-        nIssueMsgChannelAssetBurnAmount = 5 * COIN;
-        nIssueQualifierAssetBurnAmount = 50 * COIN;
-        nIssueSubQualifierAssetBurnAmount = 5 * COIN;
-        nIssueRestrictedAssetBurnAmount = 75 * COIN;
-        nAddNullQualifierTagBurnAmount = .005 * COIN;
+        nIssueAssetBurnAmount = 2.5 * COIN;
+        nReissueAssetBurnAmount = 0.5 * COIN;
+        nIssueSubAssetBurnAmount = 0.5 * COIN;
+        nIssueUniqueAssetBurnAmount = .025 * COIN;
+        nIssueMsgChannelAssetBurnAmount = 0.5 * COIN;
+        nIssueQualifierAssetBurnAmount = 5 * COIN;
+        nIssueSubQualifierAssetBurnAmount = 0.5 * COIN;
+        nIssueRestrictedAssetBurnAmount = 7.5 * COIN;
+        nAddNullQualifierTagBurnAmount = .0005 * COIN;
 
         // Burn Addresses
         strIssueAssetBurnAddress = "PXissueAssetXXXXXXXXXXXXXXXXXhhZGt";
@@ -276,7 +276,7 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nSubsidyHalvingInterval = 1051200;  //~ 3 yrs at 1.5 min block time
+        consensus.nSubsidyHalvingInterval = 1576800;  //~ 3 yrs at 1.5 min block time
         consensus.nBIP34Enabled = false;
         consensus.nBIP65Enabled = false; // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
         consensus.nBIP66Enabled = false;
@@ -285,8 +285,8 @@ public:
 
         consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.kawpowLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 2016 * 1.5 * 60; // 1.4 days
-        consensus.nPowTargetSpacing = 1.5 * 60;
+        consensus.nPowTargetTimespan = 2016 * 60; // 1.4 days
+        consensus.nPowTargetSpacing = 1 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1310; // Approx 65% for testchains
@@ -444,15 +444,15 @@ public:
 
         /** PRCO Start **/
         // Burn Amounts
-        nIssueAssetBurnAmount = 25 * COIN;
-        nReissueAssetBurnAmount = 5 * COIN;
-        nIssueSubAssetBurnAmount = 5 * COIN;
-        nIssueUniqueAssetBurnAmount = .25 * COIN;
-        nIssueMsgChannelAssetBurnAmount = 5 * COIN;
-        nIssueQualifierAssetBurnAmount = 50 * COIN;
-        nIssueSubQualifierAssetBurnAmount = 5 * COIN;
-        nIssueRestrictedAssetBurnAmount = 75 * COIN;
-        nAddNullQualifierTagBurnAmount = .005 * COIN;
+        nIssueAssetBurnAmount = 2.5 * COIN;
+        nReissueAssetBurnAmount = 0.5 * COIN;
+        nIssueSubAssetBurnAmount = 0.5 * COIN;
+        nIssueUniqueAssetBurnAmount = .025 * COIN;
+        nIssueMsgChannelAssetBurnAmount = 0.5 * COIN;
+        nIssueQualifierAssetBurnAmount = 5 * COIN;
+        nIssueSubQualifierAssetBurnAmount = 0.5 * COIN;
+        nIssueRestrictedAssetBurnAmount = 7.5 * COIN;
+        nAddNullQualifierTagBurnAmount = .0005 * COIN;
 
         // Burn Addresses
         strIssueAssetBurnAddress = "n1issueAssetXXXXXXXXXXXXXXXXWdnemQ";
@@ -492,16 +492,16 @@ class CRegTestParams : public CChainParams {
 public:
     CRegTestParams() {
         strNetworkID = "regtest";
+        consensus.nSubsidyHalvingInterval = 150;
         consensus.nBIP34Enabled = false;
         consensus.nBIP65Enabled = false; // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
         consensus.nBIP66Enabled = false;
         consensus.nSegwitEnabled = true;
         consensus.nCSVEnabled = true;
-        consensus.nSubsidyHalvingInterval = 150;
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.kawpowLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 2016 * 1.5 * 60; // 1.4 days
-        consensus.nPowTargetSpacing = 1.5 * 60;
+        consensus.nPowTargetTimespan = 2016 * 60; // 1.4 days
+        consensus.nPowTargetSpacing = 1 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
@@ -648,15 +648,15 @@ public:
 
         /** PRCO Start **/
         // Burn Amounts
-        nIssueAssetBurnAmount = 25 * COIN;
-        nReissueAssetBurnAmount = 5 * COIN;
-        nIssueSubAssetBurnAmount = 5 * COIN;
-        nIssueUniqueAssetBurnAmount = .25 * COIN;
-        nIssueMsgChannelAssetBurnAmount = 5 * COIN;
-        nIssueQualifierAssetBurnAmount = 50 * COIN;
-        nIssueSubQualifierAssetBurnAmount = 5 * COIN;
-        nIssueRestrictedAssetBurnAmount = 75 * COIN;
-        nAddNullQualifierTagBurnAmount = .005 * COIN;
+        nIssueAssetBurnAmount = 2.5 * COIN;
+        nReissueAssetBurnAmount = 0.5 * COIN;
+        nIssueSubAssetBurnAmount = 0.5 * COIN;
+        nIssueUniqueAssetBurnAmount = .025 * COIN;
+        nIssueMsgChannelAssetBurnAmount = 0.5 * COIN;
+        nIssueQualifierAssetBurnAmount = 5 * COIN;
+        nIssueSubQualifierAssetBurnAmount = 0.5 * COIN;
+        nIssueRestrictedAssetBurnAmount = 7.5 * COIN;
+        nAddNullQualifierTagBurnAmount = .0005 * COIN;
 
         // Burn Addresses
         strIssueAssetBurnAddress = "n1issueAssetXXXXXXXXXXXXXXXXWdnemQ";
