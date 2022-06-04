@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The Procyon Core developers
+// Copyright (c) 2017-2020 The Ravencoin Core developpers
+//Copyright (c) 2022-Present The Procyon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -108,11 +109,11 @@ const QString ProcyonGUI::DEFAULT_WALLET = "~Default";
 /* Bit of a bodge, c++ really doesn't want you to predefine values
  * in only header files, so we do one-time value assignment here. */
 std::array<CurrencyUnitDetails, 5> CurrencyUnits::CurrencyOptions = { {
-    { "BTC",    "RVNBTC"  , 1,          8},
-    { "mBTC",   "RVNBTC"  , 1000,       5},
-    { "µBTC",   "RVNBTC"  , 1000000,    2},
-    { "Satoshi","RVNBTC"  , 100000000,  0},
-    { "USDT",   "RVNUSDT" , 1,          5}
+    { "BTC",    "PRCOBTC"  , 1,          8},
+    { "mBTC",   "PRCOBTC"  , 1000,       5},
+    { "µBTC",   "PRCOBTC"  , 1000000,    2},
+    { "Satoshi","PRCOBTC"  , 100000000,  0},
+    { "USDT",   "PRCOBTC" , 1,          5}
 } };
 
 static bool ThreadSafeMessageBox(ProcyonGUI *gui, const std::string& message, const std::string& caption, unsigned int style);

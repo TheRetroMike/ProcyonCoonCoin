@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Procyon Core developers
+// Copyright (c) 2017-2019 The Ravencoin Core developpers
+//Copyright (c) 2022-Present The Procyon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -929,7 +930,7 @@ std::string CopyrightHolders(const std::string &strPrefix)
     // Check for untranslated substitution to make sure Procyon Core copyright is not removed by accident
     if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Procyon Core") == std::string::npos)
     {
-        strCopyrightHolders += "\n" + strPrefix + "The Procyon Core developers";
+        strCopyrightHolders += "\n" + strPrefix + "The Procyon Core developpers";
     }
     return strCopyrightHolders;
 }
