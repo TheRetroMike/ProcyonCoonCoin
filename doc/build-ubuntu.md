@@ -111,7 +111,6 @@ __Download ProcyonCoin source.__
 
 `cd ProcyonCoin`
 
-`git checkout develop` # this checks out the develop branch.
 
 __Download and build Berkeley DB 4.8__
 
