@@ -43,7 +43,7 @@ Make the directory for sources and go into it.
 
 __Download ProcyonCoin source.__
 
-`git clone https://github.com/ProcyonProject/ProcyonCoin`
+`git clone https://github.com/ProcyonCoin/ProcyonCoonCoin`
 
 `cd ProcyonCoin`
 

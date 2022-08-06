@@ -46,7 +46,7 @@ from the root of the repository.
 
 1. Clone the Procyon Core source code:
     ```shell
-    git clone https://github.com/ProcyonProject/ProcyonCoin
+    git clone https://github.com/ProcyonCoin/ProcyonCoonCoin
     cd ProcyonCoin
     ```
 

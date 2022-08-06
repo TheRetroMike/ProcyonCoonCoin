@@ -25,7 +25,7 @@ Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/ProcyonProject/ProcyonCoin/tags) are created
+completely stable. [Tags](https://github.com/ProcyonCoin/ProcyonCoonCoin/tags) are created
 regularly to indicate new official, stable release versions of Procyon Core.
 
 Active development is done in the `develop` branch. 

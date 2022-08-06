@@ -28,7 +28,7 @@ Build-Depends: debhelper,
 Standards-Version: 3.9.2
 Homepage: https://procyoncoin.org/
 Vcs-Git: git://github.com/ProcyonProject/ProcyonCoin.git
-Vcs-Browser: https://github.com/ProcyonProject/ProcyonCoin
+Vcs-Browser: https://github.com/ProcyonCoin/ProcyonCoonCoin
 
 Package: procyond
 Architecture: any

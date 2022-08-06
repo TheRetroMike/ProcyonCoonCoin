@@ -191,8 +191,8 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x000000653e8973d6062da09bb5aa194c30f62d14bb0d763d4a2b7d08637a3fbe"));
         assert(genesis.hashMerkleRoot == uint256S("10b952648efe215f957b9e5e3540c415623fcfd8cd92163f7c4b92adb04b4dc6"));
 
-        vSeeds.emplace_back("149.102.158.171", false);
         vSeeds.emplace_back("85.208.51.135", false);
+        vSeeds.emplace_back("173.249.7.7", false);
 
         // Address starts with P
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,55);
@@ -215,7 +215,8 @@ public:
             {
                 { 0, uint256S("0x000000653e8973d6062da09bb5aa194c30f62d14bb0d763d4a2b7d08637a3fbe")},
                 {1000, uint256S("0x000000057a2dabb2e5569b753b4dec03cd49f25853b5aa92a40be8b16f444fcc")},
-                {10000, uint256S("0x0000000001664f77084f1c0a86aeefa443885321d7bd0d1a89521f071b7529ee")}
+                {10000, uint256S("0x0000000001664f77084f1c0a86aeefa443885321d7bd0d1a89521f071b7529ee")},
+                {95000, uint256S("0x0000000007800cd642561375d5e5199315a8740c3842427f0b58e563b795fa7c")}
             }
         };
 

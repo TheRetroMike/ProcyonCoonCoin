@@ -108,12 +108,9 @@ const QString ProcyonGUI::DEFAULT_WALLET = "~Default";
 
 /* Bit of a bodge, c++ really doesn't want you to predefine values
  * in only header files, so we do one-time value assignment here. */
-std::array<CurrencyUnitDetails, 5> CurrencyUnits::CurrencyOptions = { {
-    { "BTC",    "PRCOBTC"  , 1,          8},
-    { "mBTC",   "PRCOBTC"  , 1000,       5},
-    { "µBTC",   "PRCOBTC"  , 1000000,    2},
-    { "Satoshi","PRCOBTC"  , 100000000,  0},
-    { "USDT",   "PRCOBTC" , 1,          5}
+std::array<CurrencyUnitDetails, 2> CurrencyUnits::CurrencyOptions = { {
+    { "LTC",    "prcoltc"  , 1,          7},
+    { "USDT",   "prcousdt" , 1,          6}
 } };
 
 static bool ThreadSafeMessageBox(ProcyonGUI *gui, const std::string& message, const std::string& caption, unsigned int style);
@@ -755,6 +752,7 @@ void ProcyonGUI::createToolBars()
         labelCurrentPrice->setAlignment(Qt::AlignVCenter);
         labelCurrentPrice->setStyleSheet(currentPriceStyleSheet.arg(COLOR_LABELS.name()));
         labelCurrentPrice->setFont(currentMarketFont);
+        labelCurrentPrice->setText(tr("0.00000"));
 
         comboRvnUnit = new QComboBox(headerWidget);
         QStringList list;
@@ -808,7 +806,7 @@ void ProcyonGUI::createToolBars()
         QObject::connect(networkManager, &QNetworkAccessManager::finished,
                          this, [=](QNetworkReply *reply) {
                     if (reply->error()) {
-                        labelCurrentPrice->setText("");
+                        labelCurrentPrice->setText("ERROR");
                         qDebug() << reply->errorString();
                         return;
                     }
@@ -816,7 +814,7 @@ void ProcyonGUI::createToolBars()
                     QString answer = reply->readAll();
 
                     // Create regex expression to find the value with 8 decimals
-                    QRegExp rx("\\d*.\\d\\d\\d\\d\\d\\d\\d\\d");
+                    QRegExp rx("\"last\":\"(\\d*.\\d+)\"");
                     rx.indexIn(answer);
 
                     // List the found values
@@ -826,7 +824,7 @@ void ProcyonGUI::createToolBars()
                     // Evaluate the current and next numbers and assign a color (green for positive, red for negative)
                     bool ok;
                     if (!list.isEmpty()) {
-                        double next = list.first().toDouble(&ok) * this->currentPriceDisplay->Scalar;
+                        double next = list.at(1).toDouble(&ok) * this->currentPriceDisplay->Scalar;
                         if (!ok) {
                             labelCurrentPrice->setStyleSheet(currentPriceStyleSheet.arg(COLOR_LABELS.name()));
                             labelCurrentPrice->setText("");
@@ -844,7 +842,7 @@ void ProcyonGUI::createToolBars()
                             }
                             this->unitChanged = false;
                             labelCurrentPrice->setText(QString("%1").arg(QString().setNum(next, 'f', this->currentPriceDisplay->Decimals)));
-                            labelCurrentPrice->setToolTip(tr("Brought to you by binance.com"));
+                            labelCurrentPrice->setToolTip(tr("Brought to you by exbitron.com"));
                         }
                     }
                 }
@@ -942,7 +940,7 @@ void ProcyonGUI::createToolBars()
                                            "New Wallet Version Found",
                                            CClientUIInterface::MSG_VERSION | CClientUIInterface::BTN_NO);
                                    if (fRet) {
-                                       QString link = "https://github.com/ProcyonProject/ProcyonCoin/releases";
+                                       QString link = "https://github.com/ProcyonCoin/ProcyonCoonCoin/releases";
                                        QDesktopServices::openUrl(QUrl(link));
                                    }
                                }
@@ -1907,7 +1905,7 @@ void ProcyonGUI::onCurrencyChange(int newIndex)
 
 void ProcyonGUI::getPriceInfo()
 {
-    request->setUrl(QUrl(QString("https://api.binance.com/api/v1/ticker/price?symbol=%1").arg(this->currentPriceDisplay->Ticker)));
+    request->setUrl(QUrl(QString("https://www.exbitron.com/api/v2/peatio/public/markets/%1/tickers").arg(this->currentPriceDisplay->Ticker)));
     networkManager->get(*request);
 }
 

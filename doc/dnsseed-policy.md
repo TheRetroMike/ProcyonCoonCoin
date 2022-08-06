@@ -51,4 +51,4 @@ situations but should be discussed in public in advance.
 
 See also
 ----------
-- [procyoncoin-seeder](https://github.com/ProcyonProject/procyoncoin-seeder) is a reference implementation of a DNS seed.
+- [procyoncoin-seeder](https://github.com/ProcyonCoin/ProcyonCoonCoin-seeder) is a reference implementation of a DNS seed.

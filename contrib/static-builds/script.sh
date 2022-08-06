@@ -29,7 +29,7 @@ cd ~/
 # Removes any existing builds and starts clean WARNING
 rm -rf ~/procyoncoin ~/sign ~/release
 
-git clone https://github.com/procyonproject/procyoncoin
+git clone https://github.com/ProcyonCoin/ProcyonCoonCoin
 cd ~/procyoncoin
 git checkout $BRANCH
 

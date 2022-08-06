@@ -8,6 +8,7 @@
 
 #include "transactiontablemodel.h"
 #include "transactionrecord.h"
+#include "guiutil.h"
 
 #include <cstdlib>
 
@@ -20,9 +21,8 @@ const QDateTime TransactionFilterProxy::MAX_DATE = QDateTime::fromTime_t(0xFFFFF
 
 TransactionFilterProxy::TransactionFilterProxy(QObject *parent) :
     QSortFilterProxyModel(parent),
-    dateFrom(MIN_DATE),
-    dateTo(MAX_DATE),
     addrPrefix(),
+    dateTo(MAX_DATE),
     assetNamePrefix(),
     typeFilter(ALL_TYPES),
     watchOnlyFilter(WatchOnlyFilter_All),
@@ -30,6 +30,9 @@ TransactionFilterProxy::TransactionFilterProxy(QObject *parent) :
     limitRows(-1),
     showInactive(true)
 {
+    QDate current = QDate::currentDate();
+    QDate startOfWeek = current.addDays(-(current.dayOfWeek()-1));
+    this->dateFrom = GUIUtil::StartOfDay(startOfWeek);   
 }
 
 bool TransactionFilterProxy::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
