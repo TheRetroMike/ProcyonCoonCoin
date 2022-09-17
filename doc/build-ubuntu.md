@@ -116,6 +116,12 @@ __Download and build Berkeley DB 4.8__
 
 `contrib/install_db4.sh ../`
 
+__Alternative for Berkeley DB 4.8__
+
+`sudo add-apt-repository ppa:bitcoin/bitcoin`
+`sudo apt-get update`
+`sudo apt-get install libdb4.8-dev libdb4.8++-dev`
+
 __The build process:__
 
 `./autogen.sh`
